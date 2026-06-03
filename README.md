@@ -1,8 +1,12 @@
 # LinkPulse - Premium URL Shortener with Analytics
 
-LinkPulse is a high-performance full-stack URL shortening platform featuring a beautiful, modern glassmorphism UI, a built-in AI assistant, secure user authentication, and comprehensive link analytics.
+LinkPulse is a high-performance, full-stack URL shortening platform featuring a modern glassmorphism UI, a built-in AI assistant, secure user authentication, and comprehensive link analytics.
 
-## 🚀 Features
+**Live Deployment:** [https://urllinkpulse.vercel.app/](https://urllinkpulse.vercel.app/)
+
+---
+
+## Features
 
 - **User Authentication**: Secure signup and login with JWT and BcryptJS.
 - **URL Shortening**: Generate unique short links instantly, with support for custom aliases.
@@ -13,9 +17,11 @@ LinkPulse is a high-performance full-stack URL shortening platform featuring a b
   - Detailed visit history (Date, IP, Browser, Referrer).
 - **Link Expiration & Fallbacks**: Set links to automatically expire and optionally redirect elsewhere.
 - **QR Code Generation**: Instant QR code download for every link.
-- **Mobile Responsive**: Stunning UI that works fluidly on all devices.
+- **Mobile Responsive**: Fluid UI that works seamlessly on all devices.
 
-## 🛠️ Tech Stack
+---
+
+## Tech Stack
 
 - **Frontend**: React, Vite, Tailwind-like custom CSS classes (Vanilla CSS)
 - **Backend**: Node.js, Express
@@ -26,13 +32,15 @@ LinkPulse is a high-performance full-stack URL shortening platform featuring a b
 
 ---
 
-## 📝 Setup Instructions
+## Setup Instructions
 
 ### Prerequisites
+
 - Node.js (v18 or higher)
 - MongoDB (Running locally on default port 27017, or MongoDB Atlas)
 
 ### Backend Setup
+
 1. Navigate to the backend folder:
    ```bash
    cd backend
@@ -54,6 +62,7 @@ LinkPulse is a high-performance full-stack URL shortening platform featuring a b
    ```
 
 ### Frontend Setup
+
 1. Navigate to the frontend folder:
    ```bash
    cd frontend
@@ -70,7 +79,7 @@ LinkPulse is a high-performance full-stack URL shortening platform featuring a b
 
 ---
 
-## 🧠 Assumptions Made
+## Assumptions Made
 
 - **MongoDB Instance**: The application assumes a local MongoDB instance running on port 27017 by default unless configured otherwise in the `.env` file.
 - **Base Routing**: The base URL for short links is assumed to be the backend server address (e.g., `http://localhost:5000`).
@@ -78,68 +87,104 @@ LinkPulse is a high-performance full-stack URL shortening platform featuring a b
 
 ---
 
-## 🤖 AI Planning Document
+## AI Planning Document
 
-The application was built systematically using an AI-assisted workflow:
-1. **Requirement Analysis & Data Modeling**: First, the core database models (User, Url, Analytics) were designed to support fast redirection and nested click-tracking data.
-2. **Backend API Construction**: Express routes were scaffolded for authentication (`/auth`), URL management (`/urls`), analytics retrieval, and a custom `/chat` endpoint for the AI assistant.
-3. **Frontend UI/UX Design**: The interface was built with a strong focus on aesthetics (glassmorphism, vivid gradients, and smooth micro-animations). Tailwind-inspired utility classes were created in plain CSS.
-4. **Feature Implementation**: AI tools were used to generate clean, modular React components for the Dashboard, URL cards, dynamic Charts, and the AI Chatbot.
-5. **Polishing & Responsiveness**: The layout was rigorously tested and adjusted using flexbox/grid layouts to ensure a premium feel across both desktop and mobile viewing.
+The application was built systematically using an iterative, AI-assisted workflow. AI tools were heavily utilized across all stages of the software development lifecycle to ensure high code quality and rapid iteration:
+
+1. **Requirement Analysis & Data Modeling**
+   We utilized AI to brainstorm the most optimal database structures for high-performance URL redirection. AI prompts helped us arrive at a robust Mongoose schema that separates core URL data from nested, high-volume click analytics, ensuring scalability.
+
+2. **Backend API Scaffolding**
+   AI was prompted to generate standard boilerplate code for Express.js routes, including JWT-based authentication and secure password hashing. We refined the AI's output to strictly follow RESTful principles and handle edge cases, such as custom alias collisions.
+
+3. **Frontend UI/UX & Component Design**
+   To achieve the premium glassmorphism aesthetic, we asked the AI to generate complex CSS gradients and flexbox layouts. The AI was also instructed to build modular React components, ensuring that pieces like the Analytics Dashboard, URL Cards, and Recharts graphs remained reusable and easy to maintain.
+
+4. **Debugging and Refactoring**
+   Throughout the development process, AI tools were used to identify syntax errors, optimize React state management (e.g., reducing unnecessary re-renders), and solve complex CSS responsiveness issues across mobile and desktop views.
+
+5. **Integrated AI Chatbot Implementation**
+   The built-in "Pulse AI" Chatbot was developed by consulting AI on the best practices for handling contextual chat history within a React application, resulting in a seamless and interactive user experience right on the dashboard.
 
 ---
 
-## 📊 Architecture Diagram
+## Architecture Diagram
 
-```mermaid
-graph TD
-    Client[Frontend: React/Vite App] -->|HTTP Requests| API[Backend: Express.js API]
-    API -->|Auth/Token| JWT[JWT Middleware]
-    API -->|Read/Write| DB[(MongoDB)]
-    
-    subgraph Frontend Components
-        Home --> Auth
-        Auth --> Dashboard
-        Dashboard --> AnalyticsView
-        Dashboard --> AIChatbot
-    end
-    
-    subgraph Backend Routes
-        API --> AuthRoute[/api/auth]
-        API --> URLRoute[/api/urls]
-        API --> RedirectRoute[/:shortCode]
-        API --> ChatRoute[/api/chat]
-    end
+![Architecture Diagram](./output%20images/architecture.png)
+
+---
+
+## Sample Output
+
+*Please refer to the `output images` folder for sample output images.*
+
+### Home Page & Dashboard
+![Screenshot 1](./output%20images/screenshot_1.png)
+![Screenshot 2](./output%20images/screenshot_2.png)
+![Screenshot 3](./output%20images/screenshot_3.png)
+![Screenshot 4](./output%20images/screenshot_4.png)
+
+### Database View
+![Screenshot 5](./output%20images/screenshot_5.png)
+![Screenshot 6](./output%20images/screenshot_6.png)
+![Screenshot 7](./output%20images/screenshot_7.png)
+
+### Sample DB Entries
+
+**URL Document:**
+```json
+{
+  "_id": {
+    "$oid": "6a1e0c27372ebd78b5065b95"
+  },
+  "originalUrl": "https://portfolio-madhumitha.vercel.app/",
+  "shortCode": "JJdn_ca",
+  "user": {
+    "$oid": "6a1df3d4e775a6598e27e8ef"
+  },
+  "clickCount": 7,
+  "expiresAt": null,
+  "createdAt": {
+    "$date": "2026-06-01T22:48:07.769Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-03T13:35:56.607Z"
+  },
+  "__v": 0,
+  "lastVisited": {
+    "$date": "2026-06-03T13:35:56.606Z"
+  },
+  "isFavorite": false
+}
+```
+
+**User Document:**
+```json
+{
+  "_id": {
+    "$oid": "6a1df3d4e775a6598e27e8ef"
+  },
+  "username": "madhumitha",
+  "email": "madhumitha805632@gmail.com",
+  "password": "$2b$10$VgBC4daSdwAkc5pShbm3jewSEW7y2Bz4W7Rno9wBP4w96LjoQxFk.",
+  "createdAt": {
+    "$date": "2026-06-01T21:04:20.210Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-03T05:56:34.463Z"
+  },
+  "__v": 0
+}
 ```
 
 ---
 
-## 📸 Sample Output 
+## Explanatory Video
 
-*(Note to Evaluator: Actual screenshots, DB entries, and logs are demonstrated in the video link below)*
+**https://youtu.be/jAG7Kk5mFYo**
 
-- **Sample DB Entry (URL Object)**:
-  ```json
-  {
-    "_id": "647b1f...",
-    "originalUrl": "https://example.com/very-long-url",
-    "shortCode": "my-alias",
-    "clickCount": 12,
-    "user": "647a0c...",
-    "createdAt": "2026-06-03T10:00:00Z"
-  }
-  ```
-- **Sample Server Log**: 
-  `[INFO] GET /my-alias - Redirecting to https://example.com/very-long-url (IP: 127.0.0.1)`
+*(This video demonstrates the application features, database entries, and overall user flow.)*
 
----
 
-## 🎥 Explanatory Video
-
-**[INSERT YOUR LOOM OR YOUTUBE LINK HERE]**
-
-*(This video demonstrates the application features, code structure, database entries, and overall user flow.)*
-
----
 
 This project is a part of a hackathon run by https://katomaran.com
