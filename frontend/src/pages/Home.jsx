@@ -44,68 +44,13 @@ const CHECKLIST = [
   'Click trend charts',  'Public stats pages',  'Link editing',
 ];
 
-const useCounter = (end, duration = 1600, active = false) => {
-  const [count, setCount] = useState(0);
-  useEffect(() => {
-    if (!active) return;
-    let val = 0;
-    const step = end / (duration / 16);
-    const t = setInterval(() => {
-      val += step;
-      if (val >= end) { setCount(end); clearInterval(t); }
-      else setCount(Math.floor(val));
-    }, 16);
-    return () => clearInterval(t);
-  }, [end, duration, active]);
-  return count;
-};
-
-const StatCounter = ({ value, label, suffix = '' }) => {
-  const [active, setActive] = useState(false);
-  const [ref, setRef] = useState(null);
-  const count = useCounter(value, 1600, active);
-
-  useEffect(() => {
-    if (!ref) return;
-    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setActive(true); }, { threshold: 0.4 });
-    obs.observe(ref);
-    return () => obs.disconnect();
-  }, [ref]);
-
-  return (
-    <div ref={setRef} className="text-center pt-8 first:pt-0 md:pt-0">
-      <div className="text-3xl sm:text-4xl font-black text-white tabular-nums tracking-tight">
-        {count.toLocaleString()}<span className="text-violet-400">{suffix}</span>
-      </div>
-      <div className="text-sm text-slate-500 font-medium mt-1">{label}</div>
-    </div>
-  );
-};
 
 const Home = () => {
   const { user } = useAuth();
   const [heroUrl, setHeroUrl] = useState('');
   const [heroResult, setHeroResult] = useState(null);
   const [heroLoading, setHeroLoading] = useState(false);
-  const [publicStats, setPublicStats] = useState({ totalUrls: 0, totalClicks: 0 });
 
-  useEffect(() => {
-    const fetchTotals = async () => {
-      try {
-        const resp = await fetch(`${BACKEND_URL}/api/urls/public-stats-totals`);
-        if (resp.ok) {
-          const data = await resp.json();
-          setPublicStats({
-            totalUrls: data.totalUrls || 0,
-            totalClicks: data.totalClicks || 0
-          });
-        }
-      } catch (err) {
-        console.error('Failed to load total counts:', err);
-      }
-    };
-    fetchTotals();
-  }, []);
 
   const handleHeroShorten = async (e) => {
     e.preventDefault();
@@ -231,16 +176,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ── Stats Strip ───────────────────────────────────────── */}
-      {user && (
-        <section className="border-y border-white/[0.06] bg-[#0c0e16]/60">
-          <div className="max-w-4xl mx-auto px-5 py-12 grid gap-8 grid-cols-1 divide-y md:divide-y-0 md:divide-x divide-white/[0.06] md:grid-cols-3">
-            <StatCounter value={publicStats.totalClicks} label="Total clicks tracked" suffix="+" />
-            <StatCounter value={publicStats.totalUrls}  label="Links shortened" suffix="+" />
-            <StatCounter value={99} label="Uptime guarantee" suffix="%" />
-          </div>
-        </section>
-      )}
 
       {/* ── About Section ────────────────────────────────────────── */}
       <section id="about-section" className="py-24 border-t border-white/[0.06] bg-[#0c0e16]/20">
