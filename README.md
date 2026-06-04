@@ -315,8 +315,9 @@ Click data is collected synchronously during the redirect phase but processing i
 
 ## Explanatory Video
 
-Want to see LinkPulse in action? Watch the full demo video by clicking the link below! 
-This comprehensive walkthrough demonstrates all application features, live database entries, and the complete user workflow from start to finish.
+Watch the full demo video by clicking the link below! 
+
+This video demonstrates all application features, live database entries, and the complete user workflow from start to finish.
 
 🎥 **[Watch the Full Demo Video Here](https://youtu.be/jAG7Kk5mFYo)**
 
