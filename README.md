@@ -213,7 +213,7 @@ Click data is collected synchronously during the redirect phase but processing i
 #### 2. Landing Page
 ![Landing Page](./output%20images/screenshot_1.png)
 
-#### 3. About Services
+#### 3. About 
 ![About Services](./output%20images/about_services.png)
 
 #### 4. Services
@@ -315,9 +315,10 @@ Click data is collected synchronously during the redirect phase but processing i
 
 ## Explanatory Video
 
-**https://youtu.be/jAG7Kk5mFYo**
+Want to see LinkPulse in action? Watch the full demo video by clicking the link below! 
+This comprehensive walkthrough demonstrates all application features, live database entries, and the complete user workflow from start to finish.
 
-*(This video demonstrates the application features, database entries, and overall user flow.)*
+🎥 **[Watch the Full Demo Video Here](https://youtu.be/jAG7Kk5mFYo)**
 
 ---
 
