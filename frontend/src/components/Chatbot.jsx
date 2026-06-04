@@ -96,20 +96,17 @@ const Chatbot = () => {
       {/* ── Chat Box Window ── */}
       {isOpen && (
         <div
-          className="animate-scale-in w-[340px] sm:w-[400px] h-[550px] rounded-3xl border border-white/10 bg-black/60 backdrop-blur-3xl flex flex-col overflow-hidden"
-          style={{
-            boxShadow: '0 30px 80px rgba(0,0,0,0.8)',
-          }}
+          className="animate-scale-in w-[340px] sm:w-[400px] h-[550px] rounded-3xl border border-slate-200 dark:border-white/10 bg-white/95 dark:bg-black/60 backdrop-blur-3xl flex flex-col overflow-hidden shadow-2xl dark:shadow-[0_30px_80px_rgba(0,0,0,0.8)]"
         >
           {/* Header */}
-          <div className="relative px-5 py-4 flex items-center justify-between border-b border-white/10 bg-white/5">
-            <div className="absolute top-0 left-0 w-full h-full bg-linear-to-r from-purple-500/20 via-fuchsia-500/20 to-pink-500/20 pointer-events-none" />
+          <div className="relative px-5 py-4 flex items-center justify-between border-b border-slate-200 dark:border-white/10 bg-slate-50/50 dark:bg-white/5">
+            <div className="absolute top-0 left-0 w-full h-full bg-linear-to-r from-purple-500/10 via-fuchsia-500/10 to-pink-500/10 pointer-events-none" />
             <div className="flex items-center gap-3 relative z-10">
               <div className="w-11 h-11 rounded-full overflow-hidden bg-linear-to-br from-purple-500 via-fuchsia-500 to-pink-500 flex items-center justify-center shadow-lg shadow-fuchsia-500/30 border border-white/20">
                 <FiMessageCircle size={22} className="text-white drop-shadow-md" />
               </div>
               <div>
-                <h3 className="font-extrabold text-base text-white tracking-tight leading-none flex items-center gap-1">
+                <h3 className="font-extrabold text-base text-slate-800 dark:text-white tracking-tight leading-none flex items-center gap-1">
                   Pulse AI <FiZap size={12} className="text-yellow-400" />
                 </h3>
                 <span className="flex items-center gap-1.5 text-[10px] text-emerald-300 font-bold uppercase tracking-wider mt-1.5 leading-none">
@@ -121,14 +118,14 @@ const Chatbot = () => {
             <div className="flex items-center gap-1.5">
               <button
                 onClick={() => setIsOpen(false)}
-                className="w-7 h-7 rounded-lg flex items-center justify-center text-white/80 hover:bg-white/10 hover:text-white transition-colors cursor-pointer"
+                className="w-7 h-7 rounded-lg flex items-center justify-center text-slate-500 hover:bg-slate-200 hover:text-slate-800 dark:text-white/80 dark:hover:bg-white/10 dark:hover:text-white transition-colors cursor-pointer"
                 title="Minimize"
               >
                 <FiMinus size={14} />
               </button>
               <button
                 onClick={() => setIsOpen(false)}
-                className="w-7 h-7 rounded-lg flex items-center justify-center text-white/80 hover:bg-white/10 hover:text-white transition-colors cursor-pointer"
+                className="w-7 h-7 rounded-lg flex items-center justify-center text-slate-500 hover:bg-slate-200 hover:text-slate-800 dark:text-white/80 dark:hover:bg-white/10 dark:hover:text-white transition-colors cursor-pointer"
                 title="Close"
               >
                 <FiX size={14} />
@@ -146,10 +143,10 @@ const Chatbot = () => {
                   className={`flex ${isAssistant ? 'justify-start' : 'justify-end'} animate-fade-in`}
                 >
                   <div
-                    className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm font-medium shadow-lg ${
+                    className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm font-medium shadow-sm ${
                       isAssistant
-                        ? 'bg-white/10 text-slate-100 border border-white/10 rounded-tl-sm backdrop-blur-md'
-                        : 'bg-linear-to-br from-purple-500 via-fuchsia-500 to-pink-500 text-white rounded-tr-sm border border-fuchsia-400/20'
+                        ? 'bg-slate-100 text-slate-800 border border-slate-200 dark:bg-white/10 dark:text-slate-100 dark:border-white/10 rounded-tl-sm backdrop-blur-md shadow-sm'
+                        : 'bg-linear-to-br from-purple-500 via-fuchsia-500 to-pink-500 text-white rounded-tr-sm border border-fuchsia-400/20 shadow-md'
                     }`}
                   >
                     <p
@@ -165,7 +162,7 @@ const Chatbot = () => {
             {loading && (
               <div className="flex justify-start animate-fade-in">
                 <div
-                  className="bg-white/10 backdrop-blur-md rounded-2xl rounded-tl-sm px-5 py-4 border border-white/10 flex gap-2 items-center shadow-lg"
+                  className="bg-slate-100 dark:bg-white/10 backdrop-blur-md rounded-2xl rounded-tl-sm px-5 py-4 border border-slate-200 dark:border-white/10 flex gap-2 items-center shadow-sm"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-violet-400 animate-bounce" style={{ animationDelay: '0s' }} />
                   <span className="w-1.5 h-1.5 rounded-full bg-violet-400 animate-bounce" style={{ animationDelay: '0.15s' }} />
@@ -178,7 +175,7 @@ const Chatbot = () => {
 
           {/* Quick Prompts Helper (when chat is empty/starts) */}
           {messages.length === 1 && !loading && (
-            <div className="px-4 py-2 flex flex-wrap gap-1.5 justify-center border-t border-white/5" style={{ borderColor: 'var(--border-sub)' }}>
+            <div className="px-4 py-3 flex flex-wrap gap-2 justify-center border-t border-slate-200 dark:border-white/5">
               {[
                 'How to shorten link?',
                 'Password gate?',
@@ -187,7 +184,7 @@ const Chatbot = () => {
                 <button
                   key={txt}
                   onClick={() => { setInput(txt); }}
-                  className="text-xs font-bold text-slate-300 bg-white/5 hover:bg-white/10 hover:text-white border border-white/10 px-3 py-1.5 rounded-full transition-all cursor-pointer shadow-sm"
+                  className="text-xs font-semibold text-slate-600 bg-slate-100 border border-slate-200 hover:bg-slate-200 hover:text-slate-900 dark:text-slate-300 dark:bg-white/5 dark:hover:bg-white/10 dark:hover:text-white dark:border-white/10 px-3 py-1.5 rounded-full transition-all cursor-pointer shadow-xs"
                 >
                   {txt}
                 </button>
@@ -198,14 +195,14 @@ const Chatbot = () => {
           {/* Input Form Footer */}
           <form
             onSubmit={handleSend}
-            className="p-4 border-t border-white/10 bg-white/5 flex gap-2 items-center"
+            className="p-4 border-t border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5 flex gap-2 items-center"
           >
             <input
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Message Pulse AI..."
-              className="flex-1 min-w-0 h-11 px-4 rounded-full text-sm outline-none transition-all bg-black/40 border border-white/10 text-white placeholder:text-slate-500 focus:border-violet-500/50 focus:ring-1 focus:ring-violet-500/30"
+              className="flex-1 min-w-0 h-11 px-4 rounded-full text-sm outline-none transition-all bg-white dark:bg-black/40 border border-slate-300 dark:border-white/10 text-slate-800 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:border-violet-500 focus:ring-2 focus:ring-violet-500/20 shadow-xs"
             />
             <button
               type="submit"
