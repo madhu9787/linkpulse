@@ -281,6 +281,30 @@ Click data is collected synchronously during the redirect phase but processing i
 }
 ```
 
+**Analytics Document:**
+```json
+{
+  "_id": {
+    "$oid": "6a1df4ffe775a6598e27e8f1"
+  },
+  "url": {
+    "$oid": "6a1df4ebe775a6598e27e8fe"
+  },
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, L_",
+  "ipAddress": "::1",
+  "timestamp": {
+    "$date": "2026-06-01T21:09:19.103Z"
+  },
+  "createdAt": {
+    "$date": "2026-06-01T21:09:19.106Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-01T21:09:19.106Z"
+  },
+  "__v": 0
+}
+```
+
 ---
 
 ## Explanatory Video
