@@ -213,19 +213,25 @@ Click data is collected synchronously during the redirect phase but processing i
 #### 2. Landing Page
 ![Landing Page](./output%20images/screenshot_1.png)
 
-#### 3. Dashboard 
-![Dashboard](./output%20images/screenshot_2.png)
+#### 3. About Services
+![About Services](./output%20images/about_services.png)
 
-#### 4. Shorten URL 
-![Shorten URL](./output%20images/screenshot_8.png)
-
-#### 5. Analytics Overview 
-![Analytics Overview](./output%20images/screenshot_3.png)
-
-#### 6. Services
+#### 4. Services
 ![Services](./output%20images/screenshot_4.png)
 
-#### 7. AI Agent
+#### 5. Quick Links and Features
+![Quick Links and Features](./output%20images/quick_links.png)
+
+#### 6. Dashboard 
+![Dashboard](./output%20images/screenshot_2.png)
+
+#### 7. Shorten URL 
+![Shorten URL](./output%20images/screenshot_8.png)
+
+#### 8. Analytics Overview 
+![Analytics Overview](./output%20images/screenshot_3.png)
+
+#### 9. AI Agent
 ![AI Agent](./output%20images/screenshot_9.png)
 
 ### Database View
