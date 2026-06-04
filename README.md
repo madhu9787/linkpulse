@@ -129,6 +129,11 @@ The application was built systematically using an iterative, AI-assisted workflo
 ![Screenshot 6](./output%20images/screenshot_6.png)
 ![Screenshot 7](./output%20images/screenshot_7.png)
 
+### Additional Views
+![Screenshot 8](./output%20images/screenshot_8.png)
+![Screenshot 9](./output%20images/screenshot_9.png)
+![Screenshot 10](./output%20images/screenshot_10.png)
+
 ### Sample DB Entries
 
 **URL Document:**
