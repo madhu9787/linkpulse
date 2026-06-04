@@ -323,4 +323,4 @@ This video demonstrates all application features, live database entries, and the
 
 ---
 
-This project is a part of a hackathon run by [Katomaran](https://katomaran.com).
+This project is a part of a hackathon run by https://katomaran.com.
